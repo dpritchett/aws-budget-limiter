@@ -28,6 +28,18 @@ git clone https://github.com/dpritchett/aws-budget-limiter
 cd aws-budget-limiter
 ```
 
+### Edit main.tf to customize your notification settings
+
+At the very top of `main.tf` [you'll see the variables that control this budget limiter](main.tf). Tweak the `admin_email` setting so that AWS spend notifications end up in your actual inbox. If the $10 USD default isn't right for you, you can change that here as well.
+
+```hcl
+locals {
+  max_monthly_spend = "10"
+  currency = "USD"
+  admin_email = "you@yourdomain.com"
+}
+```
+
 ### Initialize your Terraform setup
 
 Initialize your terraform setup (should only need to do this the first time):
